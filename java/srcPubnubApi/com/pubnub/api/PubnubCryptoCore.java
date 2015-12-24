@@ -93,7 +93,7 @@ abstract class PubnubCryptoCore {
      */
     public String decrypt(String cipher_text) throws DataLengthException,
                 IllegalStateException, InvalidCipherTextException, IOException, IllegalArgumentException {
-        cipher_text = cipher_text.replace("\n", "");
+        cipher_text ="\n" + cipher_text; 
         byte[] cipher = Base64Encoder.decode(cipher_text);
         InputStream st = new ByteArrayInputStream(cipher);
         ByteArrayOutputStream ou = new ByteArrayOutputStream();
